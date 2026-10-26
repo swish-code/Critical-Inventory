@@ -1,0 +1,150 @@
+/* Design tokens. Every colour, radius, font and spacing step the app uses is named here. */
+:root {
+  /* surfaces — the app sits in a rounded frame on --frame */
+  --frame: #e7e9ed;
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --sunken: #f7f8fa;
+  --line: #e6e8ec;
+  --line-strong: #d5d9e0;
+  --row-bg: #f6f7f9;
+  --row-hover: #eef0f3;
+
+  /* text */
+  --text: #0f1115;
+  --text-muted: #5f6673;
+  --text-faint: #8b919c;
+
+  /* brand + roles */
+  --brand: #0f9466;
+  --accent: #111317;
+  --accent-text: #ffffff;
+  --red: #dc2626;
+  --red-tint: #fdeceb;
+  --green: #15803d;
+  --green-tint: #e3f6ea;
+  --tag-bg: #dcf5e6;
+  --tag-fg: #14663a;
+  --grey-tag-bg: #eef0f3;
+  --grey-tag-fg: #4b5260;
+  --notice-bg: #fff8e5;
+  --notice-line: #f3dfa2;
+  --notice-fg: #6b4f00;
+
+  /* charts — the first three validated categorical slots, light steps */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --chart-grid: #ebedf0;
+  --chart-axis: #8b919c;
+
+  /* rail */
+  --rail-bg: #ffffff;
+  --rail-fg: #5f6673;
+  --rail-on-bg: #111317;
+  --rail-on-fg: #ffffff;
+
+  /* shape */
+  --r-card: 18px;
+  --r-pill: 12px;
+  --r-round: 999px;
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
+  --shadow-pop: 0 12px 32px -8px rgb(16 24 40 / 0.22), 0 2px 6px rgb(16 24 40 / 0.08);
+
+  /* spacing */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+
+  /* type */
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
+
+  --rail-w: 76px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --frame: #07080a;
+    --bg: #0e1013;
+    --surface: #171a1f;
+    --sunken: #1d2127;
+    --line: #2a2f37;
+    --line-strong: #3a404a;
+    --row-bg: #1d2127;
+    --row-hover: #242932;
+    --text: #eef0f3;
+    --text-muted: #a3aab5;
+    --text-faint: #7d8490;
+    --brand: #35c48a;
+    --accent: #f1f3f5;
+    --accent-text: #111317;
+    --red: #f87171;
+    --red-tint: #3a1b1c;
+    --green: #4ade80;
+    --green-tint: #15301f;
+    --tag-bg: #163828;
+    --tag-fg: #86e3b0;
+    --grey-tag-bg: #262b33;
+    --grey-tag-fg: #c2c8d1;
+    --notice-bg: #2b2412;
+    --notice-line: #54461c;
+    --notice-fg: #f2d47a;
+    --rail-bg: #171a1f;
+    --rail-fg: #a3aab5;
+    --rail-on-bg: #f1f3f5;
+    --rail-on-fg: #111317;
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+    --shadow-pop: 0 12px 32px -8px rgb(0 0 0 / 0.6);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --chart-grid: #262b33;
+    --chart-axis: #7d8490;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --frame: #07080a;
+  --bg: #0e1013;
+  --surface: #171a1f;
+  --sunken: #1d2127;
+  --line: #2a2f37;
+  --line-strong: #3a404a;
+  --row-bg: #1d2127;
+  --row-hover: #242932;
+  --text: #eef0f3;
+  --text-muted: #a3aab5;
+  --text-faint: #7d8490;
+  --brand: #35c48a;
+  --accent: #f1f3f5;
+  --accent-text: #111317;
+  --red: #f87171;
+  --red-tint: #3a1b1c;
+  --green: #4ade80;
+  --green-tint: #15301f;
+  --tag-bg: #163828;
+  --tag-fg: #86e3b0;
+  --grey-tag-bg: #262b33;
+  --grey-tag-fg: #c2c8d1;
+  --notice-bg: #2b2412;
+  --notice-line: #54461c;
+  --notice-fg: #f2d47a;
+  --rail-bg: #171a1f;
+  --rail-fg: #a3aab5;
+  --rail-on-bg: #f1f3f5;
+  --rail-on-fg: #111317;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-pop: 0 12px 32px -8px rgb(0 0 0 / 0.6);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --chart-grid: #262b33;
+  --chart-axis: #7d8490;
+  color-scheme: dark;
+}

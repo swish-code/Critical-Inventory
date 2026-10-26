@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Critical Inventory Dashboard</title>
+    <link rel="icon" href="/swish-logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply a saved light/dark choice before anything paints, so the splash
+      // below never flashes the wrong theme.
+      try {
+        var t = localStorage.getItem('ci-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t)
+      } catch (e) {}
+    </script>
+    <style>
+      /* The welcome screen. It lives here, outside the React root, so it shows
+         before the app's JavaScript has even downloaded; Shell.jsx fades it out
+         once the session check has answered. */
+      #boot {
+        --boot-bg: #fbfcfd;
+        --boot-tile: #ffffff;
+        --boot-muted: #6b7280;
+        --boot-track: #dfe3e8;
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: grid;
+        place-items: center;
+        /* A green core behind the logo and title, fading out through blue. */
+        background:
+          radial-gradient(circle 260px at 50% 46%, rgb(16 185 129 / 0.2), transparent 100%),
+          radial-gradient(circle 520px at 50% 48%, rgb(59 130 246 / 0.12), transparent 100%),
+          var(--boot-bg);
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        transition: opacity 0.35s ease;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) #boot {
+          --boot-bg: #0e1013;
+          --boot-tile: #ffffff;
+          --boot-muted: #a3aab5;
+          --boot-track: #2a2f37;
+        }
+      }
+      :root[data-theme='dark'] #boot {
+        --boot-bg: #0e1013;
+        --boot-muted: #a3aab5;
+        --boot-track: #2a2f37;
+      }
+      #boot.boot--done {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .boot__inner {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        padding: 16px;
+      }
+      .boot__tile {
+        display: grid;
+        place-items: center;
+        width: 88px;
+        height: 88px;
+        border-radius: 24px;
+        background: var(--boot-tile);
+        box-shadow: 0 12px 30px -10px rgb(16 24 40 / 0.25), 0 0 0 1px rgb(16 24 40 / 0.05);
+      }
+      .boot__tile img {
+        width: 68px;
+        height: auto;
+      }
+      .boot__kicker {
+        margin: 26px 0 4px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: var(--boot-muted);
+      }
+      .boot__title {
+        margin: 0;
+        font-size: clamp(26px, 5vw, 38px);
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+        background: linear-gradient(90deg, #10b981, #2f80ed);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .boot__sub {
+        margin: 6px 0 0;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--boot-muted);
+      }
+      .boot__bar {
+        position: relative;
+        width: 192px;
+        height: 4px;
+        margin-top: 34px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: var(--boot-track);
+      }
+      .boot__bar::after {
+        content: '';
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 65%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #10b981, #2f80ed);
+        animation: boot-load 1.6s ease-in-out infinite;
+      }
+      @keyframes boot-load {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(160%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .boot__bar::after {
+          animation: none;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boot" role="status" aria-label="Loading Critical Inventory Dashboard">
+      <div class="boot__inner">
+        <span class="boot__tile"><img src="/swish-logo.jpg" alt="" /></span>
+        <p class="boot__kicker">WELCOME TO</p>
+        <h1 class="boot__title">Critical Inventory Dashboard</h1>
+        <p class="boot__sub">Business Performance &amp; Analytics</p>
+        <span class="boot__bar" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
